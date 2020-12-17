@@ -1,0 +1,14 @@
+<div id="balance">Loading...</div>
+<script>
+(async () => {
+  balance.innerHTML = (await Promise.all(
+    [
+      "btc:1FwwuCwsgTmL3KvKjZuMhN5MLHBDWjiuhS",
+      "eth:0x7dd18b358c560d97f46b7efabe47591a7f197dc3",
+      "ltc:LSDFr6drPQPV3kXnCS1y8f9t7Ui5Z1Ny4t"
+    ]
+    .map(a => a.split(":"))
+    .map(async a => a[0].toUpperCase() + ": " + (await (await fetch(`https://api.blockcypher.com/v1/${a[0]}/main/addrs/${a[1]}/balance`)).json()).balance)
+  )).join("<br>")
+})();
+</script>
