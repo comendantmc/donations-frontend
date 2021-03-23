@@ -66,7 +66,7 @@
       fetch("https://2b2t.org.ru/api/donate").then(function(res) { return res.json(); }).then(function(data) {
         amount.innerHTML = data.progress.raised_amount + " / " + data.progress.goal_amount + " &#8381;";
         const barWidth = (data.progress.raised_amount / data.progress.goal_amount * 100);
-        bar.style.width = (barWidth > 110 ? 110 : barWidth) + "%";
+        bar.style.width = "calc(" + (barWidth > 120 ? 120 : barWidth) + "% - 8px)";
         goal.innerHTML = data.progress.title;
         thanks.innerHTML = "Спасибо этим людям (а также всем, кто поддерживал до этого): ";
         var donators = data.donators.sort(function(a, b){ return parseFloat(a.amount.replace(/\s/g, "")) - parseFloat(b.amount.replace(/\s/g, "")) });
