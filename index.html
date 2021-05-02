@@ -68,7 +68,7 @@
         const barWidth = (data.progress.raised_amount / data.progress.goal_amount * 100);
         bar.style.width = "calc(" + (barWidth > 120 ? 120 : barWidth) + "% - 8px)";
         goal.innerHTML = data.progress.title;
-        thanks.innerHTML = "Спасибо этим людям (а также всем, кто поддерживал до этого): ";
+        thanks.innerHTML = "Спасибо этим людям: ";
         var donators = data.donators.sort(function(a, b){ return parseFloat(a.amount.replace(/\s/g, "")) - parseFloat(b.amount.replace(/\s/g, "")) });
         for (var i = donators.length - 1; i >= 0; i--) {
           thanks.innerHTML += '<span class="person">' + donators[i].username + '</span> (<span class="money">' + data.donators[i].amount + '</span>)';
