@@ -74,6 +74,9 @@
           thanks.innerHTML += '<span class="person">' + donators[i].username + '</span> (<span class="money">' + data.donators[i].amount + '</span>)';
           if (i != 0) thanks.innerHTML += ", ";
         }
+        if (!donators || donators.length === 0) {
+          thanks.innerHTML += "<i>Никто пока не задонатил в этом месяце :(</i>";
+        }
         if (data.progress.raised_amount > data.progress.goal_amount) {
           document.querySelector("#bar").classList.add("onfire");
         }
