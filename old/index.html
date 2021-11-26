@@ -69,7 +69,7 @@
         bar.style.width = "calc(" + (barWidth > 120 ? 120 : barWidth) + "% - 8px)";
         goal.innerHTML = data.progress.title;
         thanks.innerHTML = "Спасибо этим людям: ";
-        var donators = data.donators.sort(function(a, b){ return parseFloat(a.amount.replace(/\s/g, "")) - parseFloat(b.amount.replace(/\s/g, "")) });
+        var donators = data.donators.sort(function(a, b){ return a.amount - b.amount; });
         for (var i = donators.length - 1; i >= 0; i--) {
           thanks.innerHTML += '<span class="person">' + donators[i].username + '</span> (<span class="money">' + data.donators[i].amount + '</span>)';
           if (i != 0) thanks.innerHTML += ", ";
